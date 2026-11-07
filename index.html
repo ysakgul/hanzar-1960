@@ -24,7 +24,9 @@ label.chk{font-size:15px;color:var(--muted);display:flex;gap:6px;align-items:cen
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
 @media(max-width:900px){.layout{grid-template-columns:1fr}}
 figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
-.stage{position:relative;line-height:0;border-radius:6px;overflow:hidden}
+.stage{position:relative;line-height:0}
+.stage img{border-radius:6px}
+.hs.flower{border-radius:30%}
 .stage img{width:100%;height:auto;display:block}
 .view{display:none;position:relative}
 .view.on{display:block}
@@ -34,7 +36,7 @@ figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radi
 .nonum .hs .n{opacity:0}
 .hs:hover,.hs.act{border-color:var(--paper);background:rgba(255,253,248,.10);box-shadow:0 0 0 2px var(--accent)}
 .hs:hover .n,.hs.act .n{opacity:1;background:var(--accent);color:#fff}
-.tip{position:absolute;z-index:5;width:min(320px,80vw);background:var(--tip);color:var(--tip-ink);border-radius:8px;padding:12px 14px;line-height:1.45;
+.tip{position:absolute;z-index:5;width:300px;background:var(--tip);color:var(--tip-ink);border-radius:8px;padding:12px 14px;line-height:1.45;
   font-size:15px;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .tip.on{opacity:1;transform:none}
 .tip h3{margin:0 0 2px;font-family:Lora,Georgia,serif;font-size:19px;font-weight:600}
@@ -92,6 +94,8 @@ footer{margin-top:28px;color:var(--muted);font-size:14px}
     <ol id="l-mid"></ol>
     <h4>Önde uzananlar</h4>
     <ol id="l-bot"></ol>
+    <h4>Çiçekler</h4>
+    <ol id="l-flw"></ol>
   </aside>
 </div>
 
@@ -143,8 +147,8 @@ const P=[
   src:"Tanıyan: Sinan'ın annesi",
   c:[1090,120,125,140], o:[1270,200,135,150]},
  {id:5,fl:"İki eliyle bir demeti ortaya uzatıyor; saati olan bilek bu demetin hemen yanında.",row:"top",name:"Talat Akgül",pos:"Ayakta, en sağda",
-  text:"Sinan'ın babası, Fatma Sena'nın dedesi. Kolunda saat olan genç o. Fatma Sena ilk bakışta tanıdı. Sinan'a göre saçı Ömer'in saçına benziyor.",
-  src:"Tanıyanlar: Fatma Sena, Sinan, annesi",
+  text:"Sinan'ın babası, Fatma Sena'nın dedesi. Kolunda saat olan genç o.</p><p>Fotoğrafı ilk gören Fatma Sena \"En sağdaki dedem mi acaba?\" diye sordu. Bülent \"Aferin benim bir tanem, Talat dedeni tanıdın. Ben o zaman 8 yaşında falandım\" diye doğruladı. Sinan da \"saati olan babam\" diyerek hemen tanıdı.</p><p>Sinan'a göre saçı Ömer'in saçına benziyor.</p><p>Fotoğrafı gören Sinan'ın annesi: \"Yengen abini çok beğenmiş, iyi ki almışım.\"</p><p>Sinan'ın şakası: Annesine geçenlerde 3.000 TL'lik cilt bakım kremi alınmış, oysa zamanında başlık parası 5.000 TL verilmiş; \"bakımı daha fazlaya geliyor.\"",
+  src:"Tanıyanlar: Fatma Sena, Sinan, annesi; doğrulayan Bülent Akgül",
   c:[1225,50,140,170], o:[1420,120,145,175]},
  {id:6,fl:"Göğsüne yasladığı demette pembe tomurcuklar ağır basıyor.",row:"mid",name:"Ahmet Karabulut",pos:"Ortada oturan, soldan 1.",
   text:"Hesso dayının oğlu. O yıllarda 23 Nisan için gidilen yarışlarda \"4 elli koşu\"da şampiyon olmuştu.",
@@ -165,7 +169,11 @@ const P=[
  {id:10,fl:"Göğsünde bir demet, yakasına da bir şakayık takmış.",row:"bot",name:"Cinli Huli",pos:"Önde uzanan, sağda",
   text:"Kel Yağub'a David Brown traktörünü sattıran adam. Sinan da annesi de tanıyamadı; Bülent hemen bildi.",
   src:"Tanıyan: Bülent Akgül",
-  c:[960,592,150,170], o:[1120,760,160,205]}
+  c:[960,592,150,170], o:[1120,760,160,205]},
+ {id:11,fl:"",row:"flw",name:"Ayı gülü (şakayık)",pos:"Gençlerin elindeki çiçekler",
+  text:"Ellerindeki çiçekler yabani şakayık (<i>Paeonia</i>); Sivas yöresinde \"ayı gülü\" denir. Bahar sonunda otlu yamaçlarda ve kayalık kenarlarında kısa bir süre açar.</p><p>Demetlerin çoğu tomurcuk, açık çiçek az: çiçeklenme yeni başlamış. Çukurbelen gibi yüksek yerlerde şakayık genelde Mayıs'ın son haftası ile Haziran'ın ilk yarısı arasında açar. Tam yapraklanmış ağaçlar, çayırdaki sarı çiçekler ve ince ceketler de geç baharla uyuşuyor.</p><p><b>Tahmin: 1960, Mayıs sonu – Haziran başı.</b></p><p>Renkli sürümdeki pembe ton yapay zekânın tahmini; bölgedeki yabani şakayıklar pembe-eflatundan koyu kırmızıya kadar değişir.",
+  src:"Mevsim, çiçeklerden yapılan bir tahmindir",
+  c:[855,222,250,150], o:[1010,300,290,160]}
 ];
 const SIZE={color:[1699,926],orig:[1920,1046]};
 const stage=document.getElementById('stage'), tip=document.getElementById('tip');
@@ -176,7 +184,7 @@ document.querySelectorAll('.view').forEach(el=>{
   const v=el.dataset.view, [W,H]=SIZE[v];
   P.forEach(p=>{
     const r=v==='color'?p.c:p.o, d=document.createElement('div');
-    d.className='hs'; d.dataset.id=p.id;
+    d.className='hs'+(p.row==='flw'?' flower':''); d.dataset.id=p.id;
     Object.assign(d.style,{left:pct(r[0],W),top:pct(r[1],H),width:pct(r[2],W),height:pct(r[3],H)});
     d.innerHTML='<span class="n">'+p.id+'</span>';
     d.setAttribute('aria-label',p.name);
@@ -186,7 +194,7 @@ document.querySelectorAll('.view').forEach(el=>{
     el.appendChild(d);
   });
 });
-const lists={top:'l-top',mid:'l-mid',bot:'l-bot'};
+const lists={top:'l-top',mid:'l-mid',bot:'l-bot',flw:'l-flw'};
 P.forEach(p=>{
   const li=document.createElement('li'); li.dataset.id=p.id;
   li.innerHTML='<b>'+p.id+'</b><span>'+p.name+'<small>'+p.pos+'</small></span>';
@@ -199,15 +207,14 @@ function show(id){
   const p=P.find(x=>x.id===id);
   document.querySelectorAll('.act').forEach(e=>e.classList.remove('act'));
   document.querySelectorAll('[data-id="'+id+'"]').forEach(e=>e.classList.add('act'));
-  tip.innerHTML='<h3>'+p.name+'</h3><div class="pos">'+p.pos+'</div><p>'+p.text+'</p><p class="fl"><b>Çiçek:</b> '+p.fl+'</p><div class="src">'+p.src+'</div>';
+  tip.innerHTML='<h3>'+p.name+'</h3><div class="pos">'+p.pos+'</div><p>'+p.text+'</p>'+(p.fl?'<p class="fl"><b>Çiçek:</b> '+p.fl+'</p>':'')+'<div class="src">'+p.src+'</div>';
   const hs=document.querySelector('.view.on .hs[data-id="'+id+'"]');
-  const s=stage.getBoundingClientRect(), r=hs.getBoundingClientRect();
+  const s=stage.getBoundingClientRect();
+  let x,y,w;
+  if(s.width>=600){ w=Math.round(s.width*0.315); x=Math.round(s.width*0.008); y=8; }
+  else { w=s.width; x=0; y=s.height+8; }
+  tip.style.width=w+'px';
   tip.classList.add('on');
-  const tw=tip.offsetWidth, th=tip.offsetHeight;
-  let x=r.right-s.left+12, y=r.top-s.top;
-  if(x+tw>s.width) x=r.left-s.left-tw-12;
-  if(x<6){x=Math.max(6,Math.min(s.width-tw-6,r.left-s.left+r.width/2-tw/2)); y=r.bottom-s.top+10; if(y+th>s.height) y=r.top-s.top-th-10;}
-  y=Math.max(6,Math.min(y,s.height-th-6));
   tip.style.left=x+'px'; tip.style.top=y+'px';
 }
 function hide(){tip.classList.remove('on');document.querySelectorAll('.act').forEach(e=>e.classList.remove('act'))}
